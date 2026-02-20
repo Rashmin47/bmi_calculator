@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:bmi_calculator/results_page.dart';
 import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -142,9 +143,6 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-
-
-
                           ],
                         ),
                       ],
@@ -155,7 +153,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: activeCardColour,
-                    cardChild:  Column(
+                    cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('AGE', style: labelTextStyle),
@@ -180,9 +178,6 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-
-
-
                           ],
                         ),
                       ],
@@ -193,13 +188,22 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: bottomContainerColour,
-            margin: EdgeInsets.only(top: 10),
-
-            width: double.infinity,
-
-            height: 80.0,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                 ResultsPage()
+              )
+              );
+            },
+            child: Container(
+              color: bottomContainerColour,
+              margin: EdgeInsets.only(top: 10),
+            
+              width: double.infinity,
+            
+              height: 80.0,
+              child: Text('CALCULATE'),
+            ),
           ),
         ],
       ),
